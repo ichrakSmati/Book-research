@@ -9,6 +9,7 @@ export interface DialogData {
   language: string;
   previewLink: string;
   description: string;
+  image: string;
 }
 
 @Component({

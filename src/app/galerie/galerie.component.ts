@@ -46,6 +46,7 @@ export class GalerieComponent implements OnInit {
         language: livre.volumeInfo.language,
         previewLink: livre.volumeInfo.previewLink,
         description: livre.volumeInfo.description,
+        image: livre.volumeInfo.imageLinks.thumbnail,
       }
     });
   }
@@ -62,6 +63,7 @@ export class GalerieComponent implements OnInit {
     }
   }
   filterSelect(items: Item[], author: string, au: number) {
+    console.log('testing date: ' + au);
     this.livres.items = this.filterPipe.transform(items, author, au);
     this.fillSelect(this.livres.items, author);
 

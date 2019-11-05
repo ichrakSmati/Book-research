@@ -4,8 +4,9 @@
 
   <mat-form-field>
     <mat-label>Date</mat-label>
-    <mat-select [(ngModel)]="selectedOption" name="selectD" #date value="">
-      <mat-option (onSelectionChange)="filterSelect(livres.items, author,au )" *ngFor="let au of publishedDates" value="{{au}}">{{au}}</mat-option>
+    <mat-select (onSelectionChange)="filterSelect(livres.items, author,selectedOption )" [(ngModel)]="selectedOption" name="selectD" #date value="">
+      <mat-option value=0>none</mat-option>
+      <mat-option  *ngFor="let au of publishedDates" value="{{au}}">{{au}}</mat-option>
     </mat-select>
   </mat-form-field>
     <button mat-flat-button color="primary" routerLink="/">Retour</button>

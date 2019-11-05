@@ -1,5 +1,6 @@
 <div>
 <h1  mat-dialog-title>{{data.title}}</h1>
+  <img src="{{data.image}}">
 <div mat-dialog-content>
   <p>{{data.description}}</p>
     <ul>
@@ -7,7 +8,7 @@
       <li>{{data.pageCount}}</li>
       <li>{{data.printType}}</li>
       <li>{{data.language}}</li>
-      <li>{{data.previewLink}}</li>
+      <li><a href="{{data.previewLink}}" target="_blank">visiter le preview</a></li>
     </ul>
 </div>
 </div>

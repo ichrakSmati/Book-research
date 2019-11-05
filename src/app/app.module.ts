@@ -17,6 +17,7 @@ import {MatOptionModule, MatSelectModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopupComponent } from './galerie/popup/popup.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PopupComponent } from './galerie/popup/popup.component';
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
+    FlexLayoutModule
   ],
   entryComponents: [PopupComponent],
   providers: [BibliothequeService, FilterPipe],

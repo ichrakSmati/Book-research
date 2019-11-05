@@ -4,11 +4,9 @@ import {Item} from '../models/item';
 @Pipe({ name: 'filter' })
 export class FilterPipe implements PipeTransform {
   transform(items: Array<Item>, author: string, au: number) {
-    console.log('test : ' + au);
     if (items && items.length) {
       return items.filter(item => {
         if (!au || au==0) {
-          console.log('nice test');
           if (item.volumeInfo.authors) {
             if (author && !item.volumeInfo.authors.find(a => a.includes(author))) {
               return false;
@@ -19,7 +17,6 @@ export class FilterPipe implements PipeTransform {
             return true;
           }
         }else{
-          console.log('bad test');
 
           if (item.volumeInfo.authors) {
             if (author && !item.volumeInfo.authors.find(a => a.includes(author)) || item.volumeInfo.publishedDate !== au ) {

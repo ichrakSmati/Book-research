@@ -1,0 +1,29 @@
+  <mat-form-field class="example-full-width">
+    <input (change)="fillSelect(livres.items, author)" [(ngModel)]="author" matInput placeholder="auteur" >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <mat-select [(ngModel)]="selectedOption" name="selectD" #date value="">
+      <mat-option (onSelectionChange)="filterSelect(livres.items, author,au )" *ngFor="let au of publishedDates" value="{{au}}">{{au}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+    <button mat-flat-button color="primary" routerLink="/">Retour</button>
+<mat-grid-list cols="3" rowHeight="4:1" >
+  <mat-grid-tile  style="padding-left: 10px; padding-right: 10px" *ngFor="let livre of  (livres.items | filter: author: selectedOption)">
+    <mat-card  style="padding-left: 10px; padding-right: 10px" (click)="openDialog(livre)" class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{livre.volumeInfo.title}}</mat-card-title>
+        <mat-card-subtitle>{{livre.volumeInfo.publishedDate}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li *ngFor="let auth of livre.volumeInfo.authors">{{auth}}</li>
+        </ul>
+        <p>
+          {{livre.volumeInfo.description |  slice:0:100}}...
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
